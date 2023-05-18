@@ -16,8 +16,10 @@ const TweetCard = () => {
         <div className={style.headerImg}>
           <img src={cardHeaderImg} alt="logo"></img>
         </div>
-        <div className={style.avatar}>
-          <img src={defaultCardAvatar} alt="user avatar"></img>
+        <div className={style.avatarBorder}>
+          <div className={style.avatar}>
+            <img src={defaultCardAvatar} alt="user avatar"></img>
+          </div>
         </div>
         <div className={style.cardSeparator}></div>
         <p className={style.tweets}>
