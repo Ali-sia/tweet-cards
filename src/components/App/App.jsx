@@ -1,9 +1,12 @@
 import './App.css';
 
+import TweetCard from '../TweetCard/TweetCard';
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <TweetCard/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
