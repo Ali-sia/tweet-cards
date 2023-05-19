@@ -26,8 +26,9 @@ const usersSlice = createSlice({
       })
 
       .addCase(subscribeUser.fulfilled, (state, { payload }) => {
-        state.users = payload;
-        console.log('---> ~ .addCase ~ payload:', payload);
+        const index = state.users.findIndex(user => user.id === payload.id);
+        state.users[index] = payload;
+
         state.isLoading = false;
         state.error = null;
       })
@@ -40,7 +41,9 @@ const usersSlice = createSlice({
       })
 
       .addCase(unsubscribeUser.fulfilled, (state, { payload }) => {
-        state.users = payload;
+        const index = state.users.findIndex(user => user.id === payload.id);
+        state.users[index] = payload;
+
         state.isLoading = false;
         state.error = null;
       })
