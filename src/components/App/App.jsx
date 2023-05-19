@@ -2,26 +2,24 @@ import { Toaster } from 'react-hot-toast';
 
 import './App.css';
 
-import TweetCard from '../TweetCard/TweetCard';
+import TweetList from '../TweetList/TweetList';
+
+// import { useState, useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { fetchUsers } from '../../redux/users/users.operations';
 
 function App() {
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchUsers());
+  // }, [dispatch]);
 
   return (
     <div className="App">
       <Toaster />
       <header className="App-header">
-        <TweetCard/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TweetList />
       </header>
     </div>
   );
