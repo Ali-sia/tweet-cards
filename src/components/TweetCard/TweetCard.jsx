@@ -1,16 +1,56 @@
 import { useState, useEffect } from 'react';
+import {
+  subscribeUser,
+  unsubscribeUser,
+} from '../../redux/users/users.operations';
+import {
+  getIsLoading,
+  getError,
+  getUsers,
+} from '../../redux/users/user.selectors';
+
+import { useSelector, useDispatch } from 'react-redux';
+
 import style from './TweetCard.module.css';
 
 import logoGoIt from '../../assets/images/logoGoIt.svg';
 import cardHeaderImg from '../../assets/images/cardHeaderImg.png';
 import defaultCardAvatar from '../../assets/images/defaultCardAvatar.png';
 
-const TweetCard = () => {
-  return (
-    <>
-      <h1>tweet card</h1>
 const TweetCard = ({ user }) => {
   const { id, name, tweets, followers, avatar, followed } = user;
+
+  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+
+  const [isFollowed, setIsFollowed] = useState(followed);
+
+  const onFollowClick = () => {
+    let newUser;
+
+    if (followed) {
+      newUser = {
+        id,
+        name,
+        tweets,
+        followers: followers - 1,
+        avatar,
+        followed: !followed,
+      };
+      return dispatch(unsubscribeUser(newUser));
+    }
+    newUser = {
+      id,
+      name,
+      tweets,
+      followers: followers + 1,
+      avatar,
+      followed: !followed,
+    };
+
+    return dispatch(subscribeUser(newUser));
+  };
 
   return (
     <li>
@@ -23,7 +63,6 @@ const TweetCard = ({ user }) => {
         </div>
         <div className={style.avatarBorder}>
           <div className={style.avatar}>
-            <img src={defaultCardAvatar} alt="user avatar"></img>
             <img
               src={avatar ? avatar : defaultCardAvatar}
               alt="user avatar"
@@ -32,23 +71,20 @@ const TweetCard = ({ user }) => {
         </div>
         <div className={style.cardSeparator}></div>
         <p className={style.tweets}>
-          <span> 777 </span> tweets
           <span> {tweets} </span> tweets
         </p>
         <p className={style.followers}>
-          <span> 100,500 </span> Followers
           <span> {followers} </span>Followers
         </p>
-        <button className={style.followBtn}>Follow</button>
         <button
           className={`${style.followBtn} ${followed && style.activeFollowBtn}`}
           onClick={() => {
+            onFollowClick();
           }}
         >
           {followed ? 'Following' : 'Follow'}
         </button>
       </div>
-    </>
     </li>
   );
 };
