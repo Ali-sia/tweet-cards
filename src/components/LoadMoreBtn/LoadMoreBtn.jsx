@@ -4,13 +4,15 @@ import style from './LoadMoreBtn.module.css';
 
 const LoadMoreBtn = ({ onLoadMore, isDisabled }) => {
   return (
-    <button
-      className={style.loadMore}
-      disabled={isDisabled}
-      onClick={() => onLoadMore()}
-    >
-      load more
-    </button>
+    <div className={style.container}>
+      <button
+        className={style.loadMore}
+        disabled={isDisabled}
+        onClick={() => onLoadMore()}
+      >
+        load more
+      </button>
+    </div>
   );
 };
 

@@ -34,11 +34,13 @@ const TweetList = () => {
 
   return (
     <>
+      <div className={style.selectContainer}></div>
       <ul className={style.tweetList}>
         {visibleUsers.map(user => (
           <TweetCard key={user.id} user={user} />
         ))}
       </ul>
+
       <LoadMoreBtn onLoadMore={handleLoadMore} isDisabled={isLoadMore} />
     </>
   );

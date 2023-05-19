@@ -1,6 +1,6 @@
 import { Toaster } from 'react-hot-toast';
 
-import './App.css';
+import style from './App.module.css';
 
 import TweetList from '../TweetList/TweetList';
 
@@ -16,11 +16,10 @@ function App() {
   // }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className={style.container}>
       <Toaster />
-      <header className="App-header">
-        <TweetList />
-      </header>
+
+      <TweetList />
     </div>
   );
 }
