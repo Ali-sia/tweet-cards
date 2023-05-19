@@ -17,13 +17,18 @@ export const fetchUsers = createAsyncThunk(
 
 export const subscribeUser = createAsyncThunk(
   'users/subscribeUser',
-  async (updatedFollowers, thunkAPI) => {
+  async (newUser, thunkAPI) => {
+    const { id, name, tweets, followers, avatar, followed } = newUser;
     try {
-      console.log('---> ~ updatedFollowers:', updatedFollowers);
-
-      //   const { followers } = updatedFollowers;
-      //   const response = await axios.post('/users', { id, name, number });
-      //   return response.data;
+      const response = await axios.put(`/users/${id}`, {
+        id,
+        name,
+        tweets,
+        followers,
+        avatar,
+        followed,
+      });
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -32,11 +37,18 @@ export const subscribeUser = createAsyncThunk(
 
 export const unsubscribeUser = createAsyncThunk(
   'users/unsubscribeUser',
-  async (contactId, thunkAPI) => {
+  async (newUser, thunkAPI) => {
+    const { id, name, tweets, followers, avatar, followed } = newUser;
     try {
-      console.log('---> ~ contactId:', contactId);
-      //   const response = await axios.delete(`/contacts/${contactId}`);
-      //   return response.data;
+      const response = await axios.put(`/users/${id}`, {
+        id,
+        name,
+        tweets,
+        followers,
+        avatar,
+        followed,
+      });
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
