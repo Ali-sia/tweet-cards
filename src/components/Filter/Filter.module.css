@@ -1,0 +1,17 @@
+.selectContainer {
+  height: 60px;
+  width: 100%;
+}
+
+.select {
+  padding: 5px;
+
+  background-color: #4d3682;
+  color: #e8e8e8;
+
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}

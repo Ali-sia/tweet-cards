@@ -15,10 +15,20 @@ const Filter = () => {
 
   return (
     <div className={style.selectContainer}>
-      <select value={filter} onChange={handleFilterChange}>
-        <option value="all">Show all</option>
-        <option value="unsubscribed">Follow</option>
-        <option value="subscribed">Following</option>
+      <select
+        className={style.select}
+        value={filter}
+        onChange={handleFilterChange}
+      >
+        <option className={style.option} value="all">
+          Show all
+        </option>
+        <option className={style.option} value="unsubscribed">
+          Follow
+        </option>
+        <option className={style.option} value="subscribed">
+          Following
+        </option>
       </select>
     </div>
   );
