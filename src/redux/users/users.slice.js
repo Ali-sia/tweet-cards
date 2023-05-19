@@ -1,22 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers, subscribeUser, unsubscribeUser } from './operations';
-
-const handlePending = state => {
-  state.isLoading = true;
-};
-
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+import { fetchUsers, subscribeUser, unsubscribeUser } from './users.operations';
 
 const usersInitialState = {
-  users: {
-    user: null,
-    tweets: null,
-    followers: null,
-    avatar: null,
-  },
+  users: {},
   isLoading: false,
   error: null,
 };
@@ -32,32 +18,38 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUsers.pending, (state, { payload }) => {
-        handlePending();
+        state.isLoading = true;
       })
       .addCase(fetchUsers.rejected, (state, { payload }) => {
-        handleRejected();
+        state.isLoading = false;
+        state.error = payload;
       })
+
       .addCase(subscribeUser.fulfilled, (state, { payload }) => {
         state.users = payload;
+        console.log('---> ~ .addCase ~ payload:', payload);
         state.isLoading = false;
         state.error = null;
       })
       .addCase(subscribeUser.pending, (state, { payload }) => {
-        handlePending();
+        state.isLoading = true;
       })
       .addCase(subscribeUser.rejected, (state, { payload }) => {
-        handleRejected();
+        state.isLoading = false;
+        state.error = payload;
       })
+
       .addCase(unsubscribeUser.fulfilled, (state, { payload }) => {
         state.users = payload;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(unsubscribeUser.pending, (state, { payload }) => {
-        handlePending();
+        state.isLoading = true;
       })
       .addCase(unsubscribeUser.rejected, (state, { payload }) => {
-        handleRejected();
+        state.isLoading = false;
+        state.error = payload;
       });
   },
 });
