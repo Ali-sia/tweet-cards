@@ -1,10 +1,14 @@
+import { Toaster } from 'react-hot-toast';
+
 import './App.css';
 
 import TweetCard from '../TweetCard/TweetCard';
 
 function App() {
+
   return (
     <div className="App">
+      <Toaster />
       <header className="App-header">
         <TweetCard/>
         <p>
