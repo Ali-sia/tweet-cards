@@ -1,15 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   subscribeUser,
   unsubscribeUser,
 } from '../../redux/users/users.operations';
-import {
-  getIsLoading,
-  getError,
-  getUsers,
-} from '../../redux/users/user.selectors';
+import { getIsLoading, getError } from '../../redux/users/user.selectors';
 
 import { useSelector, useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 import style from './TweetCard.module.css';
 
@@ -21,10 +18,12 @@ const TweetCard = ({ user }) => {
   const { id, name, tweets, followers, avatar, followed } = user;
 
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 
-  const [isFollowed, setIsFollowed] = useState(followed);
+  if (error) {
+    const errorNotify = () => toast.error(`'oops! can not follow :('`);
+    errorNotify();
+  }
 
   const onFollowClick = () => {
     let newUser;

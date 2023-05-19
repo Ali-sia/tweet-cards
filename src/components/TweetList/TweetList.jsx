@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import { fetchUsers } from '../../redux/users/users.operations';
-import {
-  getUsers,
-  getIsLoading,
-  getError,
-} from '../../redux/users/user.selectors';
+import { getUsers } from '../../redux/users/user.selectors';
 
 import { useSelector, useDispatch } from 'react-redux';
-
-import toast from 'react-hot-toast';
 
 import style from './TweetList.module.css';
 
@@ -17,22 +11,14 @@ import TweetCard from '../TweetCard/TweetCard';
 const TweetList = () => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-  let users = useSelector(getUsers);
-  console.log('--------------------------->', users);
+  const users = useSelector(getUsers);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  // if (error) {
-  //   const errorNotify = () => toast.error(`'oops! can not load :('`);
-  //   errorNotify();
-  // }
-
   return (
-    <ul>
+    <ul className={style.tweetList}>
       {!(users.length === undefined) &&
         users.map(user => <TweetCard key={user.id} user={user} />)}
     </ul>
