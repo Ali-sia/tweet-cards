@@ -70,10 +70,10 @@ const TweetCard = ({ user }) => {
         </div>
         <div className={style.cardSeparator}></div>
         <p className={style.tweets}>
-          <span> {tweets} </span> tweets
+          <span> {tweets.toLocaleString()} </span> tweets
         </p>
         <p className={style.followers}>
-          <span> {followers} </span>Followers
+          <span> {followers.toLocaleString()} </span>Followers
         </p>
         <button
           className={`${style.followBtn} ${followed && style.activeFollowBtn}`}
