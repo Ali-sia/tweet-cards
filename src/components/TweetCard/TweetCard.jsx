@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import {
   subscribeUser,
   unsubscribeUser,
 } from '../../redux/users/users.operations';
-import { getIsLoading, getError } from '../../redux/users/user.selectors';
+import { getError } from '../../redux/users/user.selectors';
 
 import { useSelector, useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';

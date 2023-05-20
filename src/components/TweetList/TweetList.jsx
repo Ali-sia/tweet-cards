@@ -20,7 +20,6 @@ const TweetList = () => {
 
   const users = useSelector(getUsers);
   const filteredUsers = useSelector(selectVisibleUsers);
-  console.log('---> ~ TweetList ~ filteredUsers:', filteredUsers);
   const usersPerPage = 3;
   const [visibleItems, setVisibleItems] = useState(usersPerPage);
 
