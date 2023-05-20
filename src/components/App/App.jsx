@@ -1,27 +1,36 @@
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
+// import style from './App.module.css';
+import Layout from '../../components/Layout/Layout';
+import HomePage from '../../pages/HomePage/HomePage';
+import TweetPage from '../../pages/TweetPage/TweetPage';
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+// const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+// const TweetPage = lazy(() => import('../../pages/TweetPage/TweetPage'));
+// const NotFoundPage = lazy(() =>
+//   import('../../pages/NotFoundPage/NotFoundPage')
+// );
 
-import style from './App.module.css';
-
-import TweetList from '../TweetList/TweetList';
-
-// import { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { fetchUsers } from '../../redux/users/users.operations';
-
-function App() {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchUsers());
-  // }, [dispatch]);
-
+const App = () => {
   return (
-    <div className={style.container}>
-      <Toaster />
+    <BrowserRouter basename="/tweet-cards">
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/tweets" element={<TweetPage />} />
+          </Route>
 
-      <TweetList />
-    </div>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+      <Toaster />
+    </BrowserRouter>
+
+    // <div className={style.container}>
+    // </div>
   );
-}
+};
 
 export default App;
