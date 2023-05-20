@@ -60,7 +60,7 @@
   height: 80px;
 
   border-radius: 50%;
-  background: #ebd8ff;
+  background-color: #ebd8ff;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.06), inset 0px -2px 4px #ae7be3,
     inset 0px 4px 4px #fbf8ff;
 }
