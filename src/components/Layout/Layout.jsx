@@ -1,5 +1,5 @@
 import style from './Layout.module.css';
-
+import './style.css';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -8,10 +8,20 @@ const Layout = () => {
   return (
     <>
       <header className={style.header}>
-        <NavLink activeClassName={style.activeLink} to="/">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? 'activeLink' : 'inactiveLink'
+          }
+          to="/"
+        >
           Home page
         </NavLink>
-        <NavLink activeClassName={style.activeLink} to="/tweets">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? 'activeLink' : 'inactiveLink'
+          }
+          to="/tweets"
+        >
           Tweets
         </NavLink>
       </header>

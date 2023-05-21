@@ -1,0 +1,24 @@
+.inactiveLink {
+  padding: 10px 20px;
+
+  text-decoration: none;
+  color: #ebd8ff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.activeLink {
+  text-decoration: underline;
+  color: #ffffff;
+
+  padding: 10px 20px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
