@@ -24,9 +24,6 @@ const App = () => {
       </Suspense>
       <Toaster />
     </BrowserRouter>
-
-    // <div className={style.container}>
-    // </div>
   );
 };
 
