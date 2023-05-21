@@ -1,10 +1,11 @@
-.imgContainer {
-  width: 200px;
-
-  border-radius: 10%;
-  overflow: hidden;
+.container {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-.imgContainer img {
-  width: 100%;
+.greeting {
+  font-size: 25px;
 }
