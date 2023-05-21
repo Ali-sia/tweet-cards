@@ -1,5 +1,3 @@
-import homeImg from '../../assets/images/homeImg.jpg';
-
 import style from './HomePage.module.css';
 
 const HomePage = () => {

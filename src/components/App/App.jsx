@@ -1,7 +1,6 @@
-import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-// import style from './App.module.css';
 import Layout from '../../components/Layout/Layout';
 import HomePage from '../../pages/HomePage/HomePage';
 import TweetPage from '../../pages/TweetPage/TweetPage';
