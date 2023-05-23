@@ -13,6 +13,8 @@
   text-transform: uppercase;
   text-align: center;
   color: #ebd8ff;
+
+  cursor: pointer;
 }
 
 .backBtn:hover {

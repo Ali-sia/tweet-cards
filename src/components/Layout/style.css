@@ -8,6 +8,12 @@
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
+
+  transition: color 250ms linear;
+}
+
+.inactiveLink:hover {
+  color: #da38ff;
 }
 
 .activeLink {
@@ -21,4 +27,9 @@
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
+
+  transition: color 250ms linear;
+}
+.activeLink:hover {
+  color: #da38ff;
 }
